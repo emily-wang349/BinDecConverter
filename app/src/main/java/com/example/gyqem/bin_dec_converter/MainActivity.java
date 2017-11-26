@@ -46,23 +46,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                int binary = Integer.parseInt(bin);
+                if (bin.equals(""))
+                    output2.setText("Please enter value");
+                else {
+                    int binary = Integer.parseInt(bin);
 
-                int dec = 0;
-                int power = 0;
+                    int dec = 0;
+                    int power = 0;
 
-                while (true){
-                    if (binary == 0) break;
-                    else{
-                        int temp = binary%10;
-                        dec += temp*Math.pow(2,power);
-                        binary = binary/10;
-                        power++;
+                    while (true) {
+                        if (binary == 0) break;
+                        else {
+                            int temp = binary % 10;
+                            dec += temp * Math.pow(2, power);
+                            binary = binary / 10;
+                            power++;
+                        }
                     }
+                    output.setText(Integer.toString(dec));
+                    bin = "";
+                    output2.setText("");
                 }
-                output.setText(Integer.toString(dec));
-                bin = "";
-                output2.setText("");
             }
         });
 
